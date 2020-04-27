@@ -25,7 +25,8 @@ int main()
     *(v++) = 0x01F1;
     *(v++) = 0x10F2;
     *(v++) = 0xFE00;
-    *(v++) = 0xFF00;
+    *(v++) = 0xFF02;
+    *(v++) = 0x2000;
 
     while (!computer.isHalted())
     {
@@ -38,12 +39,17 @@ int main()
                 computer.memory[0xCF] = in;
                 break;
             }
+            case Interruptions::WAIT_OUTPUT:
+            {
+                std::cout << "Output: " << std::dec << computer.out;
+                std::cout << " 0x" << std::hex << computer.out << "\n";
+                std::cout <<std::endl;
+                break;
+            }
         }
         computer.printState();
         computer.tick();
     }
 
-    std::cout << "Output: " << std::dec << computer.out;
-    std::cout << " 0x" << std::hex << computer.out << "\n";
-    std::cout <<std::endl;
+
 }

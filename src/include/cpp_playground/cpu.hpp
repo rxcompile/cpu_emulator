@@ -65,7 +65,7 @@ enum class Interruptions : size_t
 {
     NOINT = 0x00,
     WAIT_INPUT = 0x01,
-
+    WAIT_OUTPUT = 0x02,
 };
 
 using Flags = std::bitset<Flag::MAX>;

@@ -222,6 +222,9 @@ Interruptions Computer::check_int() const {
             case 0x01: {
                 return Interruptions::WAIT_INPUT;
             }
+            case 0x02: {
+                return Interruptions::WAIT_OUTPUT;
+            }
             default: {
                 return Interruptions::NOINT;
             }
