@@ -228,5 +228,6 @@ void Computer::microTick()
     {
         flags = {};
         mip = 0;
+        microTick();
     }
 }
