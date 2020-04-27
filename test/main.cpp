@@ -17,11 +17,12 @@ int main()
     *(v++) = 0xFF01;
     *(v++) = 0x01CF;
     *(v++) = 0x10F0;
-    *(v++) = 0x2110;
+    *(v++) = 0x2111;
     *(v++) = 0x01F1;
     *(v++) = 0x12F2;
     *(v++) = 0xFE00;
-    *(v++) = 0xFF00;
+    *(v++) = 0xFF02;
+    *(v++) = 0x2000;
     *(v++) = 0x01F1;
     *(v++) = 0x10F2;
     *(v++) = 0xFE00;
@@ -47,7 +48,7 @@ int main()
                 break;
             }
         }
-        computer.printState();
+       // computer.printState();
         computer.tick();
     }
 
