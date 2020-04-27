@@ -34,7 +34,16 @@ enum : std::size_t
     MAX
 };
 }
+namespace AluFlag
+{
+    enum : std::size_t
+    {
+        ZF,
+        CF,
 
+        MAX
+    };
+}
 enum class Code : HalfSize
 {
     NOP = 0x00,
@@ -48,13 +57,19 @@ enum class Code : HalfSize
     SUB = 0x12,
 
     JMP = 0x20,
-
+    JNZ = 0x21,
     OUT = 0xFE,
-    BRK = 0xFF,
+    INT = 0xFF,
+};
+enum class Interruptions : size_t
+{
+    NOINT = 0x00,
+    WAIT_INPUT = 0x01,
+    WAIT_OUTPUT = 0x02,
 };
 
 using Flags = std::bitset<Flag::MAX>;
-
+using AluFlags = std::bitset<AluFlag::MAX>;
 struct Computer final
 {
     bool isHalted() const;
@@ -62,6 +77,8 @@ struct Computer final
     void tick();
 
     void printState() const;
+
+    Interruptions checkInt() const;
 
     // TODO: IO
     Memory memory = {};
@@ -75,7 +92,9 @@ private:
     Register mip = 0;
     Register instruction = 0;
 
+
     Flags flags = {};
+    AluFlags alu = {};
 
     void incrementIP();
     Bus writeBusLine();
