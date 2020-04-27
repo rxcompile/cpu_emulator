@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.10)
+project(CppPlaygroundTests)
+
+enable_testing()
+
+if(NOT TARGET RxCompile::CppPlayground)
+    find_package(CppPlayground CONFIG REQUIRED)
+endif()
+
+add_executable(CppPlaygroundTests
+    main.cpp
+)
+
+target_link_libraries(CppPlaygroundTests
+    PRIVATE
+        RxCompile::CppPlayground
+)
+
+add_test(NAME CppPlayground.UnitTests COMMAND CppPlaygroundTests)
