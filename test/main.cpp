@@ -31,7 +31,7 @@ int main()
 
     while (!computer.isHalted())
     {
-        switch (computer.check_int())
+        switch (computer.checkInt())
         {
             case Interruptions::WAIT_INPUT :
             {
@@ -48,9 +48,7 @@ int main()
                 break;
             }
         }
-       // computer.printState();
         computer.tick();
     }
-
 
 }

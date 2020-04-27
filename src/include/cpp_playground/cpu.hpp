@@ -78,7 +78,7 @@ struct Computer final
 
     void printState() const;
 
-    Interruptions check_int() const;
+    Interruptions checkInt() const;
 
     // TODO: IO
     Memory memory = {};
