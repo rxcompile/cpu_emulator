@@ -214,7 +214,7 @@ void Computer::microTick() {
     }
 }
 
-Interruptions Computer::check_int() const {
+Interruptions Computer::checkInt() const {
     if (!flags.test(Flag::HALT))
         return Interruptions::NOINT;
     else {
