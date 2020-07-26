@@ -1,4 +1,4 @@
-#include "cpp_playground/cpu.hpp"
+#include "calculator/cpu.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -147,7 +147,6 @@ void Computer::printState() const {
     std::cout << " A:" << std::hex << std::setfill('0') << std::setw(4) << a;
     std::cout << " B:" << std::hex << std::setfill('0') << std::setw(4) << b;
     std::cout << " OUT:" << std::hex << std::setfill('0') << std::setw(4) << out;
-    std::cout << " DATA:" << std::hex << std::setfill('0') << std::setw(4) << memory[address];
     std::cout << " ADDR:" << std::hex << std::setfill('0') << std::setw(4) << address;
     std::cout << "\n";
 }
